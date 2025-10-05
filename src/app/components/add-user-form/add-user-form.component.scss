@@ -1,0 +1,46 @@
+.user-form {
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 0.6rem 0.75rem;
+      border: 0.0625rem solid #ccc;
+      border-radius: 0.4rem;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+    }
+  }
+
+  button {
+    align-self: flex-end;
+
+    &:disabled {
+      background-color: #0056b3;
+      opacity: 0.6;
+    }
+  }
+
+  .form-error {
+    color: #d9534f;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  small {
+    display: block;
+  }
+}

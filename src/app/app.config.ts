@@ -1,5 +1,24 @@
-import { ApplicationConfig } from '@angular/core';
+import {ApplicationConfig, isDevMode} from '@angular/core';
+import {provideHttpClient} from "@angular/common/http";
+import {provideState, provideStore} from "@ngrx/store";
+import {provideEffects} from "@ngrx/effects";
+import {provideStoreDevtools} from "@ngrx/store-devtools";
+import {UsersEffects} from "./users/users.effects";
+import {usersFeature} from "./users/users.reducer";
+import {provideRouter} from "@angular/router";
+import {routes} from "./app.routes";
+import {ordersFeature} from "./orders/orders.reducer";
+import {OrdersEffects} from "./orders/orders.effects";
 
 export const appConfig: ApplicationConfig = {
-  providers: []
+  providers: [
+    provideHttpClient(),
+    provideRouter(routes),
+    provideStore(),
+    provideEffects(),
+    provideState(usersFeature),
+    provideState(ordersFeature),
+    provideEffects([UsersEffects, OrdersEffects]),
+    provideStoreDevtools({ logOnly: !isDevMode(), maxAge: 25 }),
+  ]
 };

@@ -1,0 +1,13 @@
+<p>
+  <strong>Orders Total:</strong>
+
+  <ng-container *ngIf="!(orderLoading$ | async); else loadingBlock">
+    <ng-container *ngIf="userData$ | async as data">
+      {{ data.total | number }} ₪
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingBlock>
+    <app-loader [visible]="true"></app-loader>
+  </ng-template>
+</p>

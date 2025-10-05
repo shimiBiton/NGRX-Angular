@@ -1,0 +1,20 @@
+<div class="users-list-container card">
+  <h2>Users</h2>
+
+  <ng-container *ngIf="loading$ | async; else dataTpl">
+    <app-loader></app-loader>
+  </ng-container>
+
+  <ng-template #dataTpl>
+    <ul class="users-list">
+      <li *ngFor="let user of users$ | async" class="user-item">
+        <span>{{ user.name }}</span>
+        <button class="delete-btn" (click)="deleteUser(user.id)">Delete</button>
+      </li>
+    </ul>
+
+    <p *ngIf="error$ | async as err" class="error">
+      Error: {{ err }}
+    </p>
+  </ng-template>
+</div>

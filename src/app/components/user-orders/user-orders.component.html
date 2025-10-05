@@ -1,0 +1,28 @@
+<section class="user-orders card">
+  <h2>Selected user details</h2>
+
+  <ng-container *ngIf="userData$ | async; else noUser">
+    <app-user-name></app-user-name>
+    <app-user-order-sum></app-user-order-sum>
+  </ng-container>
+
+  <ng-template #noUser>
+    <p class="no-user">No user selected</p>
+  </ng-template>
+
+  <hr />
+
+  <h3>Select user</h3>
+
+  <ng-container *ngIf="users$ | async as users">
+    <div class="users-buttons-container">
+      <button
+        *ngFor="let user of users"
+        (click)="selectUser(user.id)"
+        [disabled]="user.id === (selectedUserId$ | async)"
+      >
+        {{ user.name }}
+      </button>
+    </div>
+  </ng-container>
+</section>
