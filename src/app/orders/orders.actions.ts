@@ -9,5 +9,6 @@ export const OrdersActions = createActionGroup({
     'Load Orders By User Success': props<{ orders: Order[] }>(),
     'Load Orders By User Failure': props<{ error: any }>(),
     'Upsert Order': props<{ order: Order }>(),
+    'Delete Orders By User': props<{ userId: number }>(),
   }
 });

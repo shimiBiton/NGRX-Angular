@@ -17,4 +17,9 @@ export class OrderService {
   getOrdersByUser(userId: number): Observable<Order[]> {
     return of(this.mockOrders.filter((o) => o.userId === userId)).pipe(delay(500));
   }
+
+  deleteOrdersByUser(userId: number): void {
+    this.mockOrders = this.mockOrders.filter(o => o.userId !== userId);
+  }
+
 }

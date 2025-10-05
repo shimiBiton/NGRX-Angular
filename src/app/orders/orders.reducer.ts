@@ -36,6 +36,12 @@ export const reducer = createReducer(
   on(OrdersActions.upsertOrder, (state, { order }) =>
     ordersAdapter.upsertOne(order, state)
   ),
+  on(OrdersActions.deleteOrdersByUser, (state, { userId }) => {
+    const ordersToRemove = Object.values(state.entities)
+      .filter(order => order?.userId === userId)
+      .map(order => order!.id);
+    return ordersAdapter.removeMany(ordersToRemove, state);
+  }),
 );
 
 export const ordersFeature = createFeature({

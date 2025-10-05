@@ -40,9 +40,15 @@ export const usersReducer = createReducer(
     userAdapter.upsertOne(user, state),
   ),
 
-  on(UsersActions.deleteUser, (state, {id}) =>
-    userAdapter.removeOne(id, state),
-  ),
+  on(UsersActions.deleteUser, (state, { id }) => {
+    const newState = userAdapter.removeOne(id, state);
+    return {
+      ...newState,
+      selectedUserId:
+        state.selectedUserId === id ? null : state.selectedUserId,
+    };
+  }),
+
 
   on(UsersActions.setSelectedUser, (state, { id }) => ({
     ...state,
