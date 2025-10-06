@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {catchError, distinctUntilChanged, map} from 'rxjs/operators';
 import { of, switchMap } from 'rxjs';
 import { OrdersActions } from './orders.actions';
-import {OrderService} from "../services/order.service";
+import {OrderService} from "../../services/order.service";
 import {UsersActions} from "../users/users.actions";
 
 

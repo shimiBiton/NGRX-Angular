@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Order } from '../orders/order.model';
+import { Order } from '../store/orders/order.model';
 import {delay, Observable, of} from "rxjs";
 
 @Injectable({

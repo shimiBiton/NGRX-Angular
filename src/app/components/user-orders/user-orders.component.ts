@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {selectUserNameAndOrdersSum, usersFeature} from "../../users/users.reducer";
+import {selectUserNameAndOrdersSum, usersFeature} from "../../store/users/users.reducer";
 import {Store} from "@ngrx/store";
-import {UsersActions} from "../../users/users.actions";
+import {UsersActions} from "../../store/users/users.actions";
 import {UserNameComponent} from "./user-name/user-name.component";
 import {UserOrderSumComponent} from "./user-order-sum/user-order-sum.component";
 

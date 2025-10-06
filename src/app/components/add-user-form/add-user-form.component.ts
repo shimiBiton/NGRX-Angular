@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
-import {User} from "../../users/user.model";
-import {UsersActions} from "../../users/users.actions";
+import {User} from "../../store/users/user.model";
+import {UsersActions} from "../../store/users/users.actions";
 
 @Component({
   selector: 'app-add-user-form',

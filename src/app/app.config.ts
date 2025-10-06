@@ -3,12 +3,12 @@ import {provideHttpClient} from "@angular/common/http";
 import {provideState, provideStore} from "@ngrx/store";
 import {provideEffects} from "@ngrx/effects";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
-import {UsersEffects} from "./users/users.effects";
-import {usersFeature} from "./users/users.reducer";
+import {UsersEffects} from "./store/users/users.effects";
+import {usersFeature} from "./store/users/users.reducer";
 import {provideRouter} from "@angular/router";
 import {routes} from "./app.routes";
-import {ordersFeature} from "./orders/orders.reducer";
-import {OrdersEffects} from "./orders/orders.effects";
+import {ordersFeature} from "./store/orders/orders.reducer";
+import {OrdersEffects} from "./store/orders/orders.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [
